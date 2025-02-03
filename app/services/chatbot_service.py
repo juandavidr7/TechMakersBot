@@ -1,3 +1,5 @@
+
+
 import json
 import os
 from langchain_community.vectorstores import FAISS
@@ -5,6 +7,7 @@ from langchain.docstore.document import Document
 from app.services.products_service import ProductService
 from app.services.llm_provider import llm
 from langchain_openai import OpenAIEmbeddings
+from typing import List, Dict, Optional
 
 EMBEDDING_MODEL = OpenAIEmbeddings()
 CHAT_MEMORY_FILE = "chat_memory.json"
@@ -39,12 +42,67 @@ class ChatbotService:
         print("✅ Base de datos de vectores creada correctamente.")
         return True
 
-    def findRelevantProducts(self, query: str, top_k=10):
+    def findRelevantProducts(self, query: str, top_k=5) -> List[Dict]:
         """Busca los productos más relevantes basándose en la consulta"""
         if not self.vector_db:
             self.createVectorDB()
         results = self.vector_db.similarity_search(query, k=top_k)
-        return results
+        return [
+            {
+                "id": doc.metadata["id"],
+                "name": doc.page_content.split("-")[0].strip(),
+                "brand": doc.metadata["brand"],
+                "price": doc.metadata["price"],
+                "stock": doc.metadata["stock"],
+            }
+            for doc in results
+        ]
+
+    def askBasedOnCurrentProducts(self, query: str) -> Dict:
+        """Genera una respuesta basada en productos relevantes y usa historial de chat"""
+
+        chat_history = self.load_chat_history()
+        relevant_products = self.findRelevantProducts(query)
+
+        formatted_chat_history = "\n".join(
+            f"{msg['sender']}: {msg['text']}" for msg in chat_history[-5:]
+        ) if chat_history else "No hay historial previo."
+
+        product_info = "\n".join(
+            f"- {p['brand']} {p['name']} (${p['price']}, {p['stock']} en stock)"
+            for p in relevant_products
+        )
+
+        prompt = f"""
+        Eres un asistente virtual de Makers Tech especializado en tecnología. 
+        Tu objetivo es proporcionar respuestas precisas, profesionales y empáticas sobre nuestros productos.  
+        Siempre debes basarte en la información de nuestro catálogo y evitar responder con información inventada.
+
+        ### Instrucciones Claves:
+        1. Ordena los productos correctamente al responder preguntas sobre precios.
+        2. Si el usuario pregunta por los productos más baratos o caros, selecciona los tres con los precios más bajos o altos, respetando el stock disponible.
+        3. Si el usuario menciona un producto específico que fue omitido, verifica si debió estar en la lista y justifica la omisión si fue un error.
+        4. Evita respuestas repetitivas y usa diferentes maneras de expresar la misma idea para sonar más natural.
+
+        ### Historial de conversación:
+        {formatted_chat_history}
+
+        ### Catálogo de Productos Relevantes:
+        {product_info if product_info else "No se encontraron productos disponibles."}
+
+        Responde de forma clara y profesional basándote en la información proporcionada.  
+        Si no puedes responder, indícalo claramente en lugar de inventar datos.
+        """
+
+        response = llm.generateResponseDependsModel(prompt)
+
+        chat_history.extend([
+            {"sender": "user", "text": query},
+            {"sender": "bot", "text": response}
+        ])
+        self.save_chat_history(chat_history)
+
+        return {"response": response, "recommended_products": relevant_products}
 
     def load_chat_history(self):
         """Carga el historial de chat desde un archivo JSON"""
@@ -57,54 +115,3 @@ class ChatbotService:
         """Guarda el historial de chat en un archivo JSON"""
         with open(CHAT_MEMORY_FILE, "w", encoding="utf-8") as file:
             json.dump(history, file, indent=4)
-
-    def askBasedOnCurrentProducts(self, query: str) -> str:
-        """Genera una respuesta basada en productos relevantes y usa historial de chat"""
-
-
-        chat_history = self.load_chat_history()
-
-
-        relevant_products = self.findRelevantProducts(query)
-        if not relevant_products:
-            return "Lo siento, no encontré productos relacionados con tu búsqueda."
-
-
-        formatted_chat_history = "\n".join(
-            f"{msg['sender']}: {msg['text']}" for msg in chat_history[-5:]
-        ) if chat_history else "No hay historial previo."
-
-
-        product_info = "\n".join(
-            f"- {doc.metadata['brand']} {doc.page_content.split('-')[0].strip()} "
-            f"(${doc.metadata['price']}, {doc.metadata['stock']} en stock)"
-            for doc in relevant_products
-        )
-
-        prompt = f"""
-    Saluda, eres un asistente virtual de Makers Tech. Responde de manera profesional, empatica, clara y concisa.
-
-     Historial de conversación:
-    {formatted_chat_history}
-
-     Pregunta del cliente:
-    "{query}"
-
-     Productos relevantes:
-    {product_info}
-
-    Responde solo con información relevante. Si no puedes responder, indícalo claramente.
-    """
-        # 6️⃣ Enviar el prompt al LLM
-        response = llm.generateResponseDependsModel(prompt)
-
-        # 7️⃣ Guardar conversación en JSON
-        chat_history.extend([
-            {"sender": "user", "text": query},
-            {"sender": "bot", "text": response}
-        ])
-        self.save_chat_history(chat_history)
-
-        return response
-
-

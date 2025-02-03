@@ -6,8 +6,7 @@ from app.models import ProductCreate
 class ProductService:
     def __init__(self):
         self.products = load_data()
-        self.image_path = "app/data/images"  # Carpeta donde están las imágenes
-        self.base_url = "http://127.0.0.1:8060/uploads"  # ✅ URL base para imágenes
+        self.image_path = "app/data/images"
 
     def _get_image_base64(self, product_id):
         """Carga la imagen en Base64 si existe, de lo contrario, devuelve None."""
@@ -23,7 +22,7 @@ class ProductService:
         products_with_images = []
         for product in self.products:
             product_with_image = product.copy()
-            product_with_image["image"] = f"{self.base_url}/{product['id']}.png"  # ✅ URL de la imagen
+            product_with_image["image"] = f"{self.base_url}/{product['id']}.png"
             product_with_image["image_base64"] = self._get_image_base64(product["id"])
             products_with_images.append(product_with_image)
         return products_with_images
@@ -52,13 +51,13 @@ class ProductService:
                 self.products[i] = {**product_data.dict(), "id": product_id}
                 save_data(self.products)
                 return self.products[i]
-        return None  # Retorna None si no encuentra el producto
+        return None
 
     def delete_product(self, product_id: int):
         """Elimina un producto por ID."""
         updated_products = [p for p in self.products if p["id"] != product_id]
         if len(self.products) == len(updated_products):
-            return False  # Retorna False si no encontró el producto
+            return False
         self.products = updated_products
         save_data(self.products)
-        return True  # Retorna True si eliminó el producto correctamente
+        return True

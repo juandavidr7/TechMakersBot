@@ -5,7 +5,7 @@ from app.services.products_service import ProductService
 
 router = APIRouter(prefix="", tags=["chatbot"])
 
-# ✅ Dependencia para inyectar ProductService en ChatbotService
+
 def get_chatbot_service(products_service: ProductService = Depends(ProductService)):
     return ChatbotService(products_service)
 

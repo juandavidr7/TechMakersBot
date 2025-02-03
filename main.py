@@ -19,7 +19,7 @@ app = FastAPI(
 )
 
 
-# Permitir solicitudes desde cualquier origen (para desarrollo)
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],  # Puedes cambiar "*" por "http://localhost:3000"
@@ -29,7 +29,7 @@ app.add_middleware(
 )
 
 
-# Registrar rutas correctamente
+
 app.include_router(products_router)
 app.include_router(chatbot_router)
 

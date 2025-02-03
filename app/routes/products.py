@@ -4,7 +4,7 @@ from app.services.products_service import ProductService
 
 router = APIRouter(prefix="/products", tags=["products"])
 
-# Dependencia para inyectar ProductService
+
 def get_product_service():
     return ProductService()
 

@@ -4,15 +4,15 @@ import { useState } from "react";
 import ProductList from "../components/ProductList";
 import Cart from "../components/Cart";
 import Chat from "@/components/Chat";
-import FullScreenChat from "@/components/FullScreenChat"; // ✅ Importamos el nuevo chat
+import FullScreenChat from "@/components/FullScreenChat";
 import NavBar from "../components/Navbar";
 
 export default function Home() {
     const [isChatOpen, setIsChatOpen] = useState(false);
-    const [isLargeChatOpen, setIsLargeChatOpen] = useState(false); // ✅ Estado para chat en pantalla completa
+    const [isLargeChatOpen, setIsLargeChatOpen] = useState(false);
     const [cart, setCart] = useState<{ id: number; name: string; price: number; quantity: number }[]>([]);
 
-    // ✅ Función para añadir productos al carrito con la cantidad seleccionada
+
     const addToCart = (id: number, name: string, price: number, quantity: number) => {
         setCart((prevCart) => {
             const existingProduct = prevCart.find((item) => item.id === id);

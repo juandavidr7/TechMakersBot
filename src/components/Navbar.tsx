@@ -21,7 +21,6 @@ export default function Navbar({ onHelpClick }: { onHelpClick: () => void }) {
                 {/* Menú de Navegación */}
                 <div className="hidden md:flex space-x-8 text-lg">
                     <a href="/" className="hover:text-orange-500">Inicio</a>
-                    <a href="#" className="hover:text-yellow-500">Recomendaciones</a>
                     <button onClick={onHelpClick} className="hover:text-yellow-500">Ayuda</button> {/* ✅ Abre chat grande */}
 
                     {role === "admin" && (

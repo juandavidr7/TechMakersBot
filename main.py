@@ -1,9 +1,13 @@
 import os
 from dotenv import load_dotenv
 from fastapi import FastAPI
-from app.routes import products, chatbot  # Carga los routers
+from starlette.staticfiles import StaticFiles
+
+from app.routes import products, chatbot, auth  # Carga los routers
 from app.routes.chatbot import router as chatbot_router
+from app.routes.auth import router as auth_router
 from app.routes.products import router as products_router
+from fastapi.middleware.cors import CORSMiddleware
 
 load_dotenv()
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
@@ -14,9 +18,24 @@ app = FastAPI(
     version="1.0"
 )
 
+
+# Permitir solicitudes desde cualquier origen (para desarrollo)
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Puedes cambiar "*" por "http://localhost:3000"
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+
 # Registrar rutas correctamente
 app.include_router(products_router)
-app.include_router(chatbot_router)  # YA NO NECESITA prefix="/chatbot"
+app.include_router(chatbot_router)
+
+app.include_router(auth_router)
+
+app.mount("/uploads", StaticFiles(directory="app/data/images"), name="uploads")
 
 @app.get("/")
 def read_root():

@@ -2,7 +2,6 @@ from fastapi import APIRouter, HTTPException, Depends
 from app.models import ProductCreate, ProductResponse
 from app.services.products_service import ProductService
 
-
 router = APIRouter(prefix="/products", tags=["products"])
 
 # Dependencia para inyectar ProductService
@@ -11,12 +10,12 @@ def get_product_service():
 
 @router.get("/", response_model=list[ProductResponse])
 def read_products(product_service: ProductService = Depends(get_product_service)):
-    """Obtiene todos los productos."""
+    """Obtiene todos los productos con su imagen en Base64."""
     return product_service.get_all_products()
 
 @router.get("/{product_id}", response_model=ProductResponse)
 def read_product_by_id(product_id: int, product_service: ProductService = Depends(get_product_service)):
-    """Obtiene un producto por su ID."""
+    """Obtiene un producto por su ID con la imagen en Base64."""
     product = product_service.get_product_by_id(product_id)
     if product is None:
         raise HTTPException(status_code=404, detail="Producto no encontrado")

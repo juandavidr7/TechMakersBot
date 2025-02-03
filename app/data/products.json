@@ -133,14 +133,5 @@
         "description": "Ultrabook compacto con Intel Core i7-1255U, 16GB RAM y 512GB SSD. Pantalla táctil.",
         "available": true,
         "id": 15
-    },
-    {
-        "brand": "LENOVO",
-        "name": "Lenovo ThinkPad P1 Gen 5",
-        "price": 2699.99,
-        "stock": 3,
-        "description": "Estación de trabajo móvil con Intel Core i9-12950HX, RTX A3000, 64GB RAM y 2TB SSD.",
-        "available": true,
-        "id": 16
     }
 ]

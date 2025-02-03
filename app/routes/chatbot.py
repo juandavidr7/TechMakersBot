@@ -1,23 +1,21 @@
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, HTTPException, Depends
 from pydantic import BaseModel
 from app.services.chatbot_service import ChatbotService
+from app.services.products_service import ProductService
 
 router = APIRouter(prefix="", tags=["chatbot"])
 
-# Inicializar el servicio solo cuando se necesite
-chatbot_service = None
+# ✅ Dependencia para inyectar ProductService en ChatbotService
+def get_chatbot_service(products_service: ProductService = Depends(ProductService)):
+    return ChatbotService(products_service)
+
 
 class ChatQuery(BaseModel):
     query: str
 
 @router.post("/chatbot")
-async def chat(query: ChatQuery):
+async def chat(query: ChatQuery, chatbot_service: ChatbotService = Depends(get_chatbot_service)):
     """Recibe la consulta y devuelve la respuesta del chatbot"""
-    global chatbot_service
-
-    if chatbot_service is None:
-        chatbot_service = ChatbotService()
-
     try:
         response = chatbot_service.askBasedOnCurrentProducts(query.query)
         return {"response": response}

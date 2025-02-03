@@ -13,28 +13,37 @@ export function useAuth() {
         setIsAuthenticated(storedRole !== null);
     }, []);
 
-    const handleLogin = (e: React.FormEvent, username: string, password: string) => {
+    // ✅ Función para iniciar sesión con el backend
+    const handleLogin = async (e: React.FormEvent, username: string, password: string) => {
         e.preventDefault();
 
-        if (username === "admin" && password === "123456") {
-            localStorage.setItem("isAuthenticated", "true");
-            localStorage.setItem("role", "admin");
-            setRole("admin");
-            setIsAuthenticated(true);
-        } else if (username === "usuario" && password === "prueba123") {
-            localStorage.setItem("isAuthenticated", "true");
-            localStorage.setItem("role", "user");
-            setRole("user");
-            setIsAuthenticated(true);
-        } else {
-            alert("Credenciales incorrectas");
-            return;
-        }
+        try {
+            const response = await fetch("http://127.0.0.1:8060/auth/login", { // Cambia la URL por la correcta
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ username, password }),
+            });
 
-        setShowLogin(false);
-        router.push("/");
+            if (!response.ok) {
+                throw new Error("Credenciales incorrectas");
+            }
+
+            const data = await response.json();
+
+            // ✅ Guardar credenciales en localStorage
+            localStorage.setItem("isAuthenticated", "true");
+            localStorage.setItem("role", data.role); // Asume que el backend envía un campo `role`
+            setRole(data.role);
+            setIsAuthenticated(true);
+
+            setShowLogin(false);
+            router.push("/");
+        } catch (error) {
+            alert("Credenciales incorrectas");
+        }
     };
 
+    // ✅ Función para cerrar sesión
     const handleLogout = () => {
         localStorage.removeItem("isAuthenticated");
         localStorage.removeItem("role");

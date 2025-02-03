@@ -1,5 +1,4 @@
 "use client";
-
 import { useState } from "react";
 
 interface ProductProps {
@@ -8,7 +7,7 @@ interface ProductProps {
     image: string;
     price: number;
     stock: number;
-    onAddToCart: (id: number) => void;
+    onAddToCart: () => void;
 }
 
 const ProductCard: React.FC<ProductProps> = ({ id, name, image, price, stock, onAddToCart }) => {
@@ -29,7 +28,7 @@ const ProductCard: React.FC<ProductProps> = ({ id, name, image, price, stock, on
 
             <button
                 className="bg-amber-500 text-white px-4 py-2 mt-3 w-full rounded-lg hover:bg-amber-600 transition"
-                onClick={() => onAddToCart(id)}
+                onClick={onAddToCart}
                 disabled={stock === 0}
             >
                 {stock > 0 ? "Añadir al Carrito" : "Agotado"}

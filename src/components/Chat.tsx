@@ -14,7 +14,7 @@ export default function Chat() {
     const [input, setInput] = useState<string>("");
     const chatContainerRef = useRef<HTMLDivElement | null>(null);
 
-    // Auto-scroll cuando se actualizan los mensajes
+
     useEffect(() => {
         if (chatContainerRef.current) {
             chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight;
@@ -27,15 +27,13 @@ export default function Chat() {
         const userMessage: Message = { sender: "user", text: input };
         setMessages(prevMessages => [...prevMessages, userMessage]);
 
-        // ⚡ Limpiar el input inmediatamente
+
         setInput("");
 
         const botResponse = await sendChatMessage(input);
         const botMessage: Message = { sender: "bot", text: botResponse };
-
         setMessages(prevMessages => [...prevMessages, botMessage]);
     };
-
     return (
         <div className="flex justify-center items-center fixed bottom-20 right-6 w-[350px] h-[500px] bg-white shadow-xl rounded-lg border border-gray-300">
             <div className="w-full h-full flex flex-col p-4">
@@ -57,7 +55,6 @@ export default function Chat() {
                     ))}
                 </div>
 
-                {/* Input Field */}
                 <form className="flex mt-2" onSubmit={(e) => { e.preventDefault(); sendMessage(); }}>
                     <input
                         type="text"

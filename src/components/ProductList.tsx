@@ -2,9 +2,9 @@
 
 import { useState, useEffect } from "react";
 import ProductCard from "./ProductCard";
-import { fetchProducts } from "@/app/pages/api/products"; // ✅ Importamos la función que consulta el backend
+import { fetchProducts } from "@/app/pages/api/products";
 
-const ProductList: React.FC = () => {
+const ProductList: React.FC<{ onAddToCart: (id: number, name: string, price: number) => void }> = ({ onAddToCart }) => {
     const [products, setProducts] = useState<{ id: number; name: string; image: string; price: number; stock: number }[]>([]);
     const [loading, setLoading] = useState(true);
 
@@ -29,7 +29,7 @@ const ProductList: React.FC = () => {
                     <ProductCard
                         key={product.id}
                         {...product}
-                        onAddToCart={(id) => console.log(`Producto ${id} añadido al carrito`)}
+                        onAddToCart={() => onAddToCart(product.id, product.name, product.price)}
                     />
                 ))
             ) : (

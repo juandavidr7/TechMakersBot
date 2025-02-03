@@ -1,0 +1,82 @@
+[
+    {
+        "sender": "user",
+        "text": "Hablame de los 3 computadores mas baratos"
+    },
+    {
+        "sender": "bot",
+        "text": "\nSaludos, gracias por contactar a Makers Tech. Nuestros 3 computadores m\u00e1s baratos disponibles actualmente son el Lenovo IdeaPad 3 por $499.99, el Dell Inspiron 15 3000 por $599.99 y el HP Envy 13 por $999.99. Te recomendamos revisar nuestras opciones de financiamiento y promociones para obtener un mejor precio. \u00bfPuedo ayudarte con algo m\u00e1s?"
+    },
+    {
+        "sender": "user",
+        "text": "Y los 3 mas caros?"
+    },
+    {
+        "sender": "bot",
+        "text": "\nSaludos, los 3 computadores m\u00e1s caros disponibles actualmente son el Lenovo ThinkPad X1 Carbon Gen 11 por $1799.99, el HP Omen 16 por $1699.99 y el Lenovo Legion 5 Pro por $1599.99. Te recomendamos revisar nuestras opciones de financiamiento y promociones para obtener un mejor precio. \u00bfPuedo ayudarte con algo m\u00e1s?"
+    },
+    {
+        "sender": "user",
+        "text": "Por qu\u00e9 no me hablas del dell precision 5570?"
+    },
+    {
+        "sender": "bot",
+        "text": "\nbot: \nEl Dell Precision 5570 es un excelente computador para tareas de dise\u00f1o y edici\u00f3n de video, con un precio de $2499.99 y 4 unidades disponibles en nuestro inventario. Tambi\u00e9n te recomendamos revisar el Dell XPS 13 Plus, con un precio de $1399.99 pero actualmente no tenemos unidades disponibles. \u00bfPuedo ayudarte con algo m\u00e1s?"
+    },
+    {
+        "sender": "user",
+        "text": "Podrias mencionarme los 3 productos mas caros que tengas?"
+    },
+    {
+        "sender": "bot",
+        "text": "\nSaludos, los 3 productos m\u00e1s caros que tenemos actualmente son el Dell Precision 5570 por $2499.99, el Lenovo ThinkPad X1 Carbon Gen 11 por $1799.99 y el HP Omen 16 por $1699.99. Te recomendamos revisar nuestras opciones de financiamiento y promociones para obtener un mejor precio. \u00bfPuedo ayudarte con algo m\u00e1s?"
+    },
+    {
+        "sender": "user",
+        "text": "Y los 3 m\u00e1s baratos?"
+    },
+    {
+        "sender": "bot",
+        "text": "\nbot: \nLos 3 productos m\u00e1s baratos que tenemos actualmente son el LENOVO Lenovo IdeaPad 3 por $499.99, el DELL Dell Inspiron 15 3000 por $599.99 y el HP HP HP Pavilion 15 por $799.99. Sin embargo, te recomendamos revisar nuestras opciones de financiamiento y promociones para obtener un mejor precio. \u00bfPuedo ayudarte con algo m\u00e1s?"
+    },
+    {
+        "sender": "user",
+        "text": "Gracias, podrias darme mas informacion acerca del segundo computador del que me hablaste"
+    },
+    {
+        "sender": "bot",
+        "text": "\nbot: \nClaro, el segundo computador que te mencion\u00e9 es el Dell XPS 13 Plus. Es una excelente opci\u00f3n para tareas de dise\u00f1o y edici\u00f3n de video, con un precio de $1399.99. Sin embargo, actualmente no tenemos unidades disponibles en nuestro inventario. Te recomiendo revisar nuestras opciones de financiamiento y promociones para obtener un mejor precio. \u00bfPuedo ayudarte con algo m\u00e1s?"
+    },
+    {
+        "sender": "user",
+        "text": "Quisiera saber las especificacion del ASUS ROG Strix G16"
+    },
+    {
+        "sender": "bot",
+        "text": "\nbot: \nClaro, el ASUS ROG Strix G16 es una excelente opci\u00f3n para juegos de alta gama y tareas de dise\u00f1o. Cuenta con un procesador Intel Core i7, 16GB de RAM y una tarjeta gr\u00e1fica NVIDIA GeForce RTX 3060. Adem\u00e1s, tiene una pantalla de 15.6 pulgadas con una frecuencia de actualizaci\u00f3n de 144Hz. Actualmente tenemos 12 unidades en stock con un precio de $1599.99. \u00bfPuedo ayudarte con algo m\u00e1s?"
+    },
+    {
+        "sender": "user",
+        "text": "Estoy buscando una laptop ASUS con buena RAM, \u00bftienes alguna opci\u00f3n?"
+    },
+    {
+        "sender": "bot",
+        "text": "\nbot: \nClaro, tenemos varias opciones de laptops ASUS con buena RAM disponibles en nuestro inventario. Algunas de ellas son el ASUS ZenBook 14 con 16GB de RAM ($1099.99, 8 en stock), el ASUS TUF Gaming F15 con 16GB de RAM ($1249.99, 15 en stock) y el ASUS ROG Zephyrus G14 con 16GB de RAM ($1799.99, 5 en stock). \u00bfTe gustar\u00eda conocer m\u00e1s detalles sobre alguno de estos modelos?"
+    },
+    {
+        "sender": "user",
+        "text": "cual es la m\u00e1s cara entre esas?"
+    },
+    {
+        "sender": "bot",
+        "text": "\nbot: La laptop m\u00e1s cara entre esas opciones es el ASUS ROG Zephyrus G14 con 16GB de RAM, con un precio de $1799.99. Actualmente tenemos 5 unidades en stock. \u00bfTe gustar\u00eda conocer m\u00e1s detalles sobre este modelo?"
+    },
+    {
+        "sender": "user",
+        "text": "Estoy buscando una laptop ASUS con buena RAM, \u00bftienes alguna opci\u00f3n?"
+    },
+    {
+        "sender": "bot",
+        "text": "\nbot: \nS\u00ed, tenemos varias opciones de laptops ASUS con buena RAM disponibles en nuestro inventario. Algunas de ellas son el ASUS ZenBook 14 con 16GB de RAM ($1099.99, 8 en stock), el ASUS TUF Gaming F15 con 16GB de RAM ($1249.99, 15 en stock) y el ASUS ROG Zephyrus G14 con 16GB de RAM ($1799.99, 5 en stock). \u00bfTe gustar\u00eda conocer m\u00e1s detalles sobre alguno de estos modelos?"
+    }
+]

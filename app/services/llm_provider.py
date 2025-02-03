@@ -2,28 +2,19 @@ import os
 from dotenv import load_dotenv
 
 
-env_loaded=load_dotenv()
-
-# Verificar si se cargó correctamente
-print(f"DEBUG: `.env` cargado correctamente? {env_loaded}")
-
+load_dotenv()
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
 # Detectar qué modelo usar
 MODEL_PROVIDER = os.getenv("MODEL_PROVIDER", "openai")
 
-# Imprimir la clave (solo los primeros 5 caracteres por seguridad)
-print(f"DEBUG: OPENAI_API_KEY = {OPENAI_API_KEY[:5] + '********' if OPENAI_API_KEY else 'No encontrada'}")
-
-
-if not OPENAI_API_KEY:
-    raise ValueError("🚨 ERROR: No se encontró `OPENAI_API_KEY` en las variables de entorno.")
-
-
 if MODEL_PROVIDER == "openai":
+    if not OPENAI_API_KEY:
+        raise ValueError("🚨 ERROR: La variable OPENAI_API_KEY no está definida en el archivo .env")
     from langchain_openai import OpenAI
+
 elif MODEL_PROVIDER == "llama":
-    """from llama_cpp import Llama"""
+    from llama_cpp import Llama
 
 
 class LLMProvider:
@@ -38,7 +29,7 @@ class LLMProvider:
     def generateResponseDependsModel(self, prompt: str) -> str:
         """Genera una respuesta según el modelo en uso."""
         if MODEL_PROVIDER == "openai":
-            return self.model(prompt)
+            return self.model.invoke(prompt)  # ✅ Usa .invoke() en lugar de __call__()
         elif MODEL_PROVIDER == "llama":
             output = self.model(prompt, max_tokens=200)
             return output["choices"][0]["text"].strip()

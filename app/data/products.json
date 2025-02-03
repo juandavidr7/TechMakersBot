@@ -1,148 +1,146 @@
-{
-  "computadoras": [
+[
     {
-      "id": 1,
-      "marca": "ASUS",
-      "modelo": "ASUS ROG Strix G16",
-      "precio": 1599.99,
-      "stock": 12,
-      "available": true,
-      "descripcion": "Laptop gamer con Intel Core i7-13650HX, RTX 4060, 16GB RAM y 512GB SSD. Pantalla de 16\" FHD 165Hz."
+        "brand": "ASUS",
+        "name": "ASUS ROG Strix G16",
+        "price": 1599.99,
+        "stock": 12,
+        "description": "Laptop gamer con Intel Core i7-13650HX, RTX 4060, 16GB RAM y 512GB SSD. Pantalla de 16\" FHD 165Hz.",
+        "available": true,
+        "id": 1
     },
     {
-      "id": 2,
-      "marca": "ASUS",
-      "modelo": "ASUS ZenBook 14",
-      "precio": 1099.99,
-      "stock": 8,
-      "available": true,
-      "descripcion": "Ultrabook con pantalla OLED 14\", Intel Core i7-1260P, 16GB RAM y 1TB SSD. Diseño ligero y elegante."
+        "brand": "ASUS",
+        "name": "ASUS ZenBook 14",
+        "price": 1099.99,
+        "stock": 8,
+        "description": "Ultrabook con pantalla OLED 14\", Intel Core i7-1260P, 16GB RAM y 1TB SSD. Diseño ligero y elegante.",
+        "available": true,
+        "id": 2
     },
     {
-      "id": 3,
-      "marca": "ASUS",
-      "modelo": "ASUS TUF Gaming F15",
-      "precio": 1249.99,
-      "stock": 15,
-      "available": true,
-      "descripcion": "Laptop gamer con Intel Core i5-12500H, RTX 3050 Ti, 16GB RAM y 512GB SSD. Refrigeración avanzada."
+        "brand": "ASUS",
+        "name": "ASUS TUF Gaming F15",
+        "price": 1249.99,
+        "stock": 15,
+        "description": "Laptop gamer con Intel Core i5-12500H, RTX 3050 Ti, 16GB RAM y 512GB SSD. Refrigeración avanzada.",
+        "available": true,
+        "id": 3
     },
     {
-      "id": 4,
-      "marca": "DELL",
-      "modelo": "Dell XPS 13 Plus",
-      "precio": 1399.99,
-      "stock": 0,
-      "available": false,
-      "descripcion": "Ultrabook premium con pantalla táctil 13.4\" OLED, Intel Core i7-12700H, 16GB RAM y 512GB SSD."
+        "brand": "DELL",
+        "name": "Dell XPS 13 Plus",
+        "price": 1399.99,
+        "stock": 0,
+        "description": "Ultrabook premium con pantalla táctil 13.4\" OLED, Intel Core i7-12700H, 16GB RAM y 512GB SSD.",
+        "available": false,
+        "id": 4
     },
     {
-      "id": 5,
-      "marca": "DELL",
-      "modelo": "Dell Inspiron 15 3000",
-      "precio": 599.99,
-      "stock": 20,
-      "available": true,
-      "descripcion": "Laptop económica con Intel Core i3-1215U, 8GB RAM y 256GB SSD. Ideal para estudiantes y oficina."
+        "brand": "DELL",
+        "name": "Dell Inspiron 15 3000",
+        "price": 599.99,
+        "stock": 20,
+        "description": "Laptop económica con Intel Core i3-1215U, 8GB RAM y 256GB SSD. Ideal para estudiantes y oficina.",
+        "available": true,
+        "id": 5
     },
     {
-      "id": 6,
-      "marca": "DELL",
-      "modelo": "Dell G15 Gaming",
-      "precio": 1299.99,
-      "stock": 14,
-      "available": true,
-      "descripcion": "Laptop gamer con AMD Ryzen 7 6800H, RTX 3060, 16GB RAM y 512GB SSD. Pantalla de 15.6\" 165Hz."
+        "brand": "DELL",
+        "name": "Dell G15 Gaming",
+        "price": 1299.99,
+        "stock": 14,
+        "description": "Laptop gamer con AMD Ryzen 7 6800H, RTX 3060, 16GB RAM y 512GB SSD. Pantalla de 15.6\" 165Hz.",
+        "available": true,
+        "id": 6
     },
     {
-      "id": 7,
-      "marca": "HP",
-      "modelo": "HP Spectre x360 14",
-      "precio": 1499.99,
-      "stock": 9,
-      "available": true,
-      "descripcion": "Convertible 2 en 1 con pantalla OLED 14\", Intel Core i7-1360P, 16GB RAM y 1TB SSD."
+        "brand": "HP",
+        "name": "HP Spectre x360 14",
+        "price": 1499.99,
+        "stock": 9,
+        "description": "Convertible 2 en 1 con pantalla OLED 14\", Intel Core i7-1360P, 16GB RAM y 1TB SSD.",
+        "available": true,
+        "id": 7
     },
     {
-      "id": 8,
-      "marca": "HP",
-      "modelo": "HP Pavilion 15",
-      "precio": 799.99,
-      "stock": 0,
-      "available": false,
-      "descripcion": "Laptop versátil con AMD Ryzen 5 7530U, 16GB RAM y 512GB SSD. Buen equilibrio entre rendimiento y precio."
+        "brand": "HP",
+        "name": "HP Pavilion 15",
+        "price": 799.99,
+        "stock": 0,
+        "description": "Laptop versátil con AMD Ryzen 5 7530U, 16GB RAM y 512GB SSD. Buen equilibrio entre rendimiento y precio.",
+        "available": false,
+        "id": 8
     },
     {
-      "id": 9,
-      "marca": "HP",
-      "modelo": "HP Omen 16",
-      "precio": 1699.99,
-      "stock": 7,
-      "available": true,
-      "descripcion": "Laptop gamer con Intel Core i9-13900HX, RTX 4070, 32GB RAM y 1TB SSD. Pantalla de 16.1\" QHD 165Hz."
+        "brand": "HP",
+        "name": "HP Omen 16",
+        "price": 1699.99,
+        "stock": 7,
+        "description": "Laptop gamer con Intel Core i9-13900HX, RTX 4070, 32GB RAM y 1TB SSD. Pantalla de 16.1\" QHD 165Hz.",
+        "available": true,
+        "id": 9
     },
     {
-      "id": 10,
-      "marca": "LENOVO",
-      "modelo": "Lenovo ThinkPad X1 Carbon Gen 11",
-      "precio": 1799.99,
-      "stock": 6,
-      "available": true,
-      "descripcion": "Ultrabook empresarial con Intel Core i7-1365U, 32GB RAM y 1TB SSD. Chasis de carbono ultraligero."
+        "brand": "LENOVO",
+        "name": "Lenovo ThinkPad X1 Carbon Gen 11",
+        "price": 1799.99,
+        "stock": 6,
+        "description": "Ultrabook empresarial con Intel Core i7-1365U, 32GB RAM y 1TB SSD. Chasis de carbono ultraligero.",
+        "available": true,
+        "id": 10
     },
     {
-      "id": 11,
-      "marca": "LENOVO",
-      "modelo": "Lenovo IdeaPad 3",
-      "precio": 499.99,
-      "stock": 25,
-      "available": true,
-      "descripcion": "Laptop básica con Intel Core i3-1115G4, 8GB RAM y 256GB SSD. Buena opción para tareas cotidianas."
+        "brand": "LENOVO",
+        "name": "Lenovo IdeaPad 3",
+        "price": 499.99,
+        "stock": 25,
+        "description": "Laptop básica con Intel Core i3-1115G4, 8GB RAM y 256GB SSD. Buena opción para tareas cotidianas.",
+        "available": true,
+        "id": 11
     },
     {
-      "id": 12,
-      "marca": "LENOVO",
-      "modelo": "Lenovo Legion 5 Pro",
-      "precio": 1599.99,
-      "stock": 10,
-      "available": true,
-      "descripcion": "Laptop gamer con AMD Ryzen 7 6800H, RTX 3070 Ti, 16GB RAM y 1TB SSD. Pantalla de 16\" WQXGA 165Hz."
+        "brand": "LENOVO",
+        "name": "Lenovo Legion 5 Pro",
+        "price": 1599.99,
+        "stock": 10,
+        "description": "Laptop gamer con AMD Ryzen 7 6800H, RTX 3070 Ti, 16GB RAM y 1TB SSD. Pantalla de 16\" WQXGA 165Hz.",
+        "available": true,
+        "id": 12
     },
     {
-      "id": 13,
-      "marca": "ASUS",
-      "modelo": "ASUS ROG Zephyrus G14",
-      "precio": 1799.99,
-      "stock": 5,
-      "available": true,
-      "descripcion": "Laptop gamer ultra portátil con AMD Ryzen 9 6900HS, RTX 3060, 32GB RAM y 1TB SSD."
+        "brand": "ASUS",
+        "name": "ASUS ROG Zephyrus G14",
+        "price": 1799.99,
+        "stock": 5,
+        "description": "Laptop gamer ultra portátil con AMD Ryzen 9 6900HS, RTX 3060, 32GB RAM y 1TB SSD.",
+        "available": true,
+        "id": 13
     },
     {
-      "id": 14,
-      "marca": "DELL",
-      "modelo": "Dell Precision 5570",
-      "precio": 2499.99,
-      "stock": 4,
-      "available": true,
-      "descripcion": "Estación de trabajo con Intel Core i9-12900H, RTX A2000, 32GB RAM y 1TB SSD."
+        "brand": "DELL",
+        "name": "Dell Precision 5570",
+        "price": 2499.99,
+        "stock": 4,
+        "description": "Estación de trabajo con Intel Core i9-12900H, RTX A2000, 32GB RAM y 1TB SSD.",
+        "available": true,
+        "id": 14
     },
     {
-      "id": 15,
-      "marca": "HP",
-      "modelo": "HP Envy 13",
-      "precio": 999.99,
-      "stock": 15,
-      "available": true,
-      "descripcion": "Ultrabook compacto con Intel Core i7-1255U, 16GB RAM y 512GB SSD. Pantalla táctil."
+        "brand": "HP",
+        "name": "HP Envy 13",
+        "price": 999.99,
+        "stock": 15,
+        "description": "Ultrabook compacto con Intel Core i7-1255U, 16GB RAM y 512GB SSD. Pantalla táctil.",
+        "available": true,
+        "id": 15
     },
     {
-      "id": 16,
-      "marca": "LENOVO",
-      "modelo": "Lenovo ThinkPad P1 Gen 5",
-      "precio": 2699.99,
-      "stock": 3,
-      "available": true,
-      "descripcion": "Estación de trabajo móvil con Intel Core i9-12950HX, RTX A3000, 64GB RAM y 2TB SSD."
+        "brand": "LENOVO",
+        "name": "Lenovo ThinkPad P1 Gen 5",
+        "price": 2699.99,
+        "stock": 3,
+        "description": "Estación de trabajo móvil con Intel Core i9-12950HX, RTX A3000, 64GB RAM y 2TB SSD.",
+        "available": true,
+        "id": 16
     }
-  ]
-}
+]

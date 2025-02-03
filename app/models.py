@@ -8,8 +8,10 @@ class ProductBase(BaseModel):
     description: str
     available: bool
 
+
 class ProductCreate(ProductBase):
     pass
 
 class ProductResponse(ProductBase):
     id: int
+

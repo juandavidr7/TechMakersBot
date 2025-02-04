@@ -1,9 +1,11 @@
 from fastapi import APIRouter, HTTPException, Depends
 from pydantic import BaseModel
-from app.services.chatbot_service import ChatbotService
-from app.services.products_service import ProductService
+from ..services.chatbot_service import ChatbotService
+from ..services.products_service import ProductService
 
 router = APIRouter(prefix="", tags=["chatbot"])
+
+chatbot_service = ChatbotService(ProductService())
 
 
 def get_chatbot_service(products_service: ProductService = Depends(ProductService)):
@@ -22,3 +24,8 @@ async def chat(query: ChatQuery, chatbot_service: ChatbotService = Depends(get_c
     except Exception as e:
         print(f"🚨 ERROR en chatbot: {e}")
         raise HTTPException(status_code=500, detail="Error interno del chatbot")
+
+@router.delete("/chatbot/clear-history")
+def clear_chat_history():
+    """Borra el historial de chat almacenado en chat_memory.json"""
+    return chatbot_service.clear_chat_history()

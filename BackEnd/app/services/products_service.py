@@ -1,7 +1,7 @@
 import os
 import base64
-from app.database import load_data, save_data
-from app.models import ProductCreate
+from ..database import load_data, save_data
+from ..models import ProductCreate
 
 class ProductService:
     def __init__(self):
@@ -18,23 +18,20 @@ class ProductService:
         return None  # Si la imagen no existe
 
     def get_all_products(self):
-        """Retorna todos los productos con su URL e imagen en Base64."""
+        """Retorna todos los productos con su imagen en Base64."""
         products_with_images = []
         for product in self.products:
             product_with_image = product.copy()
-            product_with_image["image"] = f"{self.base_url}/{product['id']}.png"
             product_with_image["image_base64"] = self._get_image_base64(product["id"])
             products_with_images.append(product_with_image)
         return products_with_images
 
     def get_product_by_id(self, product_id):
-        """Busca un producto por ID y añade la URL y la imagen en Base64 si existe."""
+        """Busca un producto por ID y añade la imagen en Base64 si existe."""
         product = next((p for p in self.products if p["id"] == product_id), None)
         if product:
-            product["image"] = f"{self.base_url}/{product['id']}.png"  # ✅ URL de la imagen
             product["image_base64"] = self._get_image_base64(product_id)
         return product
-
 
     def create_product(self, product_data: ProductCreate):
         """Crea un nuevo producto y lo guarda en la base de datos."""

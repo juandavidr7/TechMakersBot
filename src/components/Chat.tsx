@@ -31,7 +31,7 @@ export default function Chat() {
         setInput("");
 
         const botResponse = await sendChatMessage(input);
-        const botMessage: Message = { sender: "bot", text: botResponse };
+        const botMessage: Message = { sender: "bot", text: botResponse.response };
         setMessages(prevMessages => [...prevMessages, botMessage]);
     };
     return (

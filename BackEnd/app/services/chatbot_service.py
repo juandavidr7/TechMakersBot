@@ -145,4 +145,3 @@ class ChatbotService:
                 print("⚠️ No se encontró un historial de chat para eliminar.")
         except Exception as e:
             print(f"❌ Error al eliminar el historial de chat: {e}")
-

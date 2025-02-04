@@ -19,6 +19,11 @@ git clone https://github.com/juandavidr7/TechMakersBot.git
 cd TechMakersBot
 
 ```
+🔹 Configuración del archivo .env
+Antes de ejecutar la aplicación, necesitas crear un archivo .env para definir la clave de la API de OpenAI.
+
+Pasos para configurar el .env
+1️⃣ En la raíz del proyecto (BackEnd), crea un archivo llamado .env.
 
 2️⃣ Iniciar el Backend (FastAPI)
 📌 El backend usa FastAPI, almacena datos en JSON y está configurado en http://127.0.0.1:8092.
@@ -30,7 +35,7 @@ cd BackEnd
 python -m venv venv
 source venv/bin/activate  # En Windows: venv\Scripts\activate
 pip install -r requirements.txt
-uvicorn app.main:app --host 127.0.0.1 --port 8092 --reload
+uvicorn main:app --host 127.0.0.1 --port 8092 --reload
 ```
 ✅ El backend se ejecutará en: http://127.0.0.1:8092
 ✅ Para probar la API, abre en tu navegador: http://127.0.0.1:8092/docs
@@ -40,7 +45,6 @@ uvicorn app.main:app --host 127.0.0.1 --port 8092 --reload
 
 Para ejecutarlo:
 ```sh
-cd frontend
 npm install  # o yarn install
 npm run dev  # o yarn dev
 ```

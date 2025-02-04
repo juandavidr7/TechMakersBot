@@ -1,36 +1,66 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Proyecto: Chatbot con Backend y Frontend
 
-## Getting Started
+Este proyecto integra un backend desarrollado con **FastAPI** y un frontend construido con **Next.js** y **React**, utilizando **Tailwind CSS** para los estilos.  
+El backend maneja datos estaticos en **JSON** y usa **LangChain** y la **API** de OPENAI para mejorar la generación de respuestas del chatbot.
 
-First, run the development server:
+## 📌 Requisitos
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+Asegúrate de tener instalado en tu sistema:
+
+✅ **Python 3.11** (para el backend)  
+✅ **Node.js 18+ y npm o yarn** (para el frontend)
+
+## 🚀 Instalación y Ejecución
+
+### 1️⃣ Clonar el Repositorio
+
+```sh
+git clone https://github.com/tu-repositorio/chatbot.git
+cd chatbot
+
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2️⃣ Iniciar el Backend (FastAPI)
+📌 El backend usa FastAPI, almacena datos en JSON y está configurado en http://127.0.0.1:8092.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Si deseas ejecutar el backend manualmente:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```sh
+cd BackEnd
+python -m venv venv
+source venv/bin/activate  # En Windows: venv\Scripts\activate
+pip install -r requirements.txt
+uvicorn app.main:app --host 127.0.0.1 --port 8092 --reload
+```
+✅ El backend se ejecutará en: http://127.0.0.1:8092
+✅ Para probar la API, abre en tu navegador: http://127.0.0.1:8092/docs
 
-## Learn More
+3️⃣ Iniciar el Frontend (Next.js)
+📌 El frontend está desarrollado con Next.js y React, y utiliza Tailwind CSS o Bootstrap.
 
-To learn more about Next.js, take a look at the following resources:
+Para ejecutarlo:
+```sh
+cd frontend
+npm install  # o yarn install
+npm run dev  # o yarn dev
+```
+✅ El frontend se ejecutará en: http://localhost:3000
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+4️⃣ Configurar la Conexión entre el Frontend y el Backend
+📌 El frontend debe comunicarse con el backend en el puerto 8092.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Si hay errores de conexión, revisa dónde se define la API en el frontend 
 
-## Deploy on Vercel
+📌 API Endpoints
+Para explorar la API, visita:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+🔹 http://127.0.0.1:8092/docs
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+🔹 Ejemplo de solicitud al chatbot (usando curl):
+```sh
+curl -X POST "http://127.0.0.1:8092/chatbot/" \
+     -H "Content-Type: application/json" \
+     -d '{"query": "¿Qué laptops ASUS tienen en stock?"}'
+
+```
+

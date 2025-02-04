@@ -15,8 +15,8 @@ Asegúrate de tener instalado en tu sistema:
 ### 1️⃣ Clonar el Repositorio
 
 ```sh
-git clone https://github.com/tu-repositorio/chatbot.git
-cd chatbot
+git clone https://github.com/juandavidr7/TechMakersBot.git
+cd TechMakersBot
 
 ```
 

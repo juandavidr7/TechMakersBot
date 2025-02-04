@@ -20,7 +20,6 @@ const FullScreenChat: React.FC<{ onClose: () => void }> = ({ onClose }) => {
         }
     }, [messages]);
 
-    // ✅ Enviar mensaje y recibir respuesta del chatbot
     const sendMessage = async () => {
         if (!input.trim()) return;
 
@@ -31,7 +30,12 @@ const FullScreenChat: React.FC<{ onClose: () => void }> = ({ onClose }) => {
 
         try {
             const botResponse = await sendChatMessage(input);
-            const botMessage: Message = { sender: "bot", text: botResponse };
+
+            console.log("🔍 Respuesta del chatbot:", botResponse); // 🛠 Debug
+
+            const botMessage: Message = { sender: "bot", text: botResponse.response };
+
+
             setMessages(prevMessages => [...prevMessages, botMessage]);
         } catch (error) {
             console.error("Error en el chatbot:", error);
@@ -41,6 +45,7 @@ const FullScreenChat: React.FC<{ onClose: () => void }> = ({ onClose }) => {
             ]);
         }
     };
+
 
     return (
         <div className="fixed inset-0 bg-gray-900 bg-opacity-90 flex justify-center items-center">
